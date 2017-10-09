@@ -31,7 +31,7 @@ router.get('/texts', function(req, res) {
 })
 
 router.post('/texts', function(req, res) {
-    //console.log('adding new text: ' + req.body.title)
+    // console.log('adding new text: ' + req.body.title)
     var text = new Text(req.body)
 
     text.save(function(err, result) {
@@ -56,7 +56,7 @@ router.put('/texts', function(req, res) {
     texto["textBody"] = {}
     texto["textAuthor"] = []
 
-    console.log("texto", texto)
+    // console.log("texto", texto)
     texto.textBody.value = req.body.content
     // skip autor for now, since we would have to look that up :(
         // no, now we got it!
@@ -65,7 +65,7 @@ router.put('/texts', function(req, res) {
     texto.metaData.itemSlug = req.body.data.slug
     texto.metaData.publishedDate = req.body.data.fecha
     texto.metaData.published = true
-    console.log('the new texto: ', texto)
+    // console.log('the new texto: ', texto)
 
     var query = {
         'metaData.itemSlug': req.body.data.slug

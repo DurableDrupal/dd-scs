@@ -30,7 +30,7 @@ router.get('/writers', function(req, res) {
 })
 
 router.post('/writers', function(req, res) {
-    //console.log('adding new writer: ' + req.body.title)
+    // console.log('adding new writer: ' + req.body.title)
     var writer = new Writer(req.body)
 
     writer.save(function(err, result) {
@@ -57,7 +57,7 @@ router.put('/writers', function(req, res) {
     aWriter["writerProfileMedia"] = {}
     aWriter.writerProfileMedia["mediaLink"] = {}
 
-    console.log("aWriter", aWriter)
+    // console.log("aWriter", aWriter)
     aWriter.metaData.itemName = req.body.data.nombre
     aWriter.metaData.itemSlug = req.body.data.slug
     aWriter.metaData.publishedDate = new Date().toISOString()
@@ -68,7 +68,7 @@ router.put('/writers', function(req, res) {
     aWriter.writerFacebook.linkUrl = req.body.data.facebook.url
     aWriter.writerFacebook.linkAttributes.push({attrName: 'title', attrValue: req.body.data.facebook.profile_name})
     aWriter.writerProfileMedia.mediaLink.linkUrl = req.body.data.picture
-    console.log('the new aWriter: ', aWriter)
+    // console.log('the new aWriter: ', aWriter)
     // skip autor for now, since we would have to look that up
 
     var query = {
