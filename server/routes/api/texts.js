@@ -126,6 +126,7 @@ router.get('/texts/:_id', function(req, res) {
 router.get('/textsbyslug/:slug', function(req, res) {
   query = Text.findOne({"metaData.itemSlug": req.params.slug})
   // optionally support field specifications in query strings
+  .populate('textAuthor')
   if (req.query.select) {
     query.select(req.query.select)
   }
