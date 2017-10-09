@@ -123,6 +123,27 @@ router.get('/texts/:_id', function(req, res) {
     })
 })
 
+router.get('/textsbyslug/:slug', function(req, res) {
+  query = Text.findOne({"metaData.itemSlug": req.params.slug})
+  // optionally support field specifications in query strings
+  if (req.query.select) {
+    query.select(req.query.select)
+  }
+  query.exec(function(err, text) {
+        if (err)
+            return res.json({
+                error: "Error fetching texts",
+                error: err
+            });
+        else if (!text)
+            return res.json({
+                error: "Error finding texts",
+                error: err
+            });
+        res.send(text);
+  })
+})
+
 router.delete('/texts/:_id', function(req, res) {
     Text.findByIdAndRemove({
         _id: req.params._id

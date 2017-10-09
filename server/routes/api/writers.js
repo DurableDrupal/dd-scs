@@ -128,7 +128,6 @@ router.get('/writers/:_id', function(req, res) {
     })
 })
 
-// API for /api/writer/:_id - specific writer with param _id
 router.get('/writersbyslug/:slug', function(req, res) {
   query = Writer.findOne({"metaData.itemSlug": req.params.slug})
   // optionally support field specifications in query strings
