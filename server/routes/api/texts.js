@@ -158,5 +158,4 @@ router.delete('/texts/:_id', function(req, res) {
     })
 })
 
-
 module.exports = router
