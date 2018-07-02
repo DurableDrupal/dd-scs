@@ -6,21 +6,21 @@ var TextLong = require('./base-content-attributes/text-long').TextLong
 var Person = require('./domain-content-attributes/person').Person
 var Tag = require('./base-content-attributes/tag').Tag
 
-var writerSchema = mongoose.Schema({
+var authorSchema = mongoose.Schema({
   idLegacy: Number,
   metaData: MetaData.schema,
-  writerPersonalInfo: Person.schema,
-  writerBio: TextLong.schema, 
-  writerBanner: Media.schema,
-  writerLogo: Media.schema,
-  writerProfileMedia: Media.schema,
-  writerGallery: [Media.schema],
-  writerFacebook: Link.schema,
-  writerTwitter: Link.schema,
-  writerWebsite: Link.schema,
-  writerWebsiteMedia: Media.schema,
-  writerYouTube: Link.schema,
+  authorPersonalInfo: Person.schema,
+  authorBio: TextLong.schema, 
+  authorBanner: Media.schema,
+  authorLogo: Media.schema,
+  authorProfileMedia: Media.schema,
+  authorGallery: [Media.schema],
+  authorFacebook: Link.schema,
+  authorTwitter: Link.schema,
+  authorWebsite: Link.schema,
+  authorWebsiteMedia: Media.schema,
+  authorYouTube: Link.schema,
   tags: [Tag.schema]
 })
  
-exports.Writer = mongoose.model('Writer', writerSchema)
+exports.Author = mongoose.model('Author', authorSchema)

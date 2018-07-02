@@ -11,6 +11,8 @@ config.mongodb = {}
 config.mongodb.port = 27017
 config.mongodb.host = 'localhost'
 config.mongodb.db = 'mydb'
+config.mongodb.user = 'user'
+config.mongodb.password = 'password'
 
 // server config
 config.server = {}

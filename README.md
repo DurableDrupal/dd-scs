@@ -1,4 +1,4 @@
-Structured Content Server (PraxisPoetica)
+Structured Content Server (dtw)
 
 * node.js
 * express.js
