@@ -162,20 +162,26 @@ router.post('/blocks', function (req, res) {
     aBlock.blockSummary = req.body.data.blockSummary
     aBlock.blockBody = req.body.content
     // aBlock.blockPhoto
-    aBlock.blockPhoto.mediaLink.linkUrl = req.body.data.blockPhoto.mediaLink.url
-    aBlock.blockPhoto.mediaLink.linkFilePath = req.body.data.blockPhoto.mediaLink.filePath
-    aBlock.blockPhoto.mediaLink.linkAttributes.push({attrName: 'title', attrValue: req.body.data.blockPhoto.mediaLink.title})
-    aBlock.blockPhoto.mediaType = req.body.data.blockPhoto.mediaType
-    aBlock.blockPhoto.mediaCaption = req.body.data.blockPhoto.mediaCaption
+    if (req.body.data.blockPhoto) { 
+        aBlock.blockPhoto.mediaLink.linkUrl = req.body.data.blockPhoto.mediaLink.url
+        aBlock.blockPhoto.mediaLink.linkFilePath = req.body.data.blockPhoto.mediaLink.filePath
+        aBlock.blockPhoto.mediaLink.linkAttributes.push({attrName: 'title', attrValue: req.body.data.blockPhoto.mediaLink.title})
+        aBlock.blockPhoto.mediaType = req.body.data.blockPhoto.mediaType
+        aBlock.blockPhoto.mediaCaption = req.body.data.blockPhoto.mediaCaption
+    }
     // aBlock.blockVideo
-    aBlock.blockVideo.mediaLink.linkUrl = req.body.data.blockVideo.mediaLink.url
-    aBlock.blockVideo.mediaLink.linkFilePath = req.body.data.blockVideo.mediaLink.filePath
-    aBlock.blockVideo.mediaLink.linkAttributes.push({attrName: 'title', attrValue: req.body.data.blockVideo.mediaLink.title})
-    aBlock.blockLink.linkUrl = req.body.data.blockLink.url
-    aBlock.blockVideo.mediaType = req.body.data.blockVideo.mediaType
-    aBlock.blockVideo.mediaCaption = req.body.data.blockVideo.mediaCaption
+    if (req.body.data.blockVideo) { 
+        aBlock.blockVideo.mediaLink.linkUrl = req.body.data.blockVideo.mediaLink.url
+        aBlock.blockVideo.mediaLink.linkFilePath = req.body.data.blockVideo.mediaLink.filePath
+        aBlock.blockVideo.mediaLink.linkAttributes.push({attrName: 'title', attrValue: req.body.data.blockVideo.mediaLink.title})
+        aBlock.blockLink.linkUrl = req.body.data.blockLink.url
+        aBlock.blockVideo.mediaType = req.body.data.blockVideo.mediaType
+        aBlock.blockVideo.mediaCaption = req.body.data.blockVideo.mediaCaption
+    }
     // aBlock.blockLink
-    aBlock.blockLink.linkAttributes.push({attrName: 'title', attrValue: req.body.data.blockLink.title})
+    if (req.body.data.blockLink) {
+      aBlock.blockLink.linkAttributes.push({attrName: 'title', attrValue: req.body.data.blockLink.title})
+    }
     aBlock.blockTags = req.body.data.blockTags
     aBlock.blockPages = req.body.data.blockPages
 
